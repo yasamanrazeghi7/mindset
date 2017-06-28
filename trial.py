@@ -4,7 +4,6 @@ class Trial(object):
         self.start_state = start_state
         self.current_state = start_state
         self.total_reward = 0
-        self.end_state = None
         self.remaining_moves = moves_number
         self.state = "not_started"
 
