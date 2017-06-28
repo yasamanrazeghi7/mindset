@@ -10,5 +10,8 @@ class Node(object):
     def get_reward(self, action):
         return self.actions_dict[action]
 
+    def get_name(self):
+        return self.name
+
 if __name__ == "__main__":
     print("Salam imported node")
