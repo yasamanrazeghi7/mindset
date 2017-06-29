@@ -22,7 +22,7 @@ class Task(object):
             for a in range(action_number):
                 line = i_file.readline()
                 tokens = line.split()
-                self.nodes[n].add_action(tokens[1], int(tokens[3]), tokens[2])
+                self.nodes[n].add_action(tokens[1], int(tokens[3]), self.nodes[int(tokens[2])-1])
         i_file.close()
 
     def __str__(self):

@@ -8,10 +8,10 @@ class State(Enum):
 
 
 class Trial(object):
-    def __init__(self, moves_number, start_state):
+    def __init__(self, moves_number, start_node):
         self.moves_number = moves_number
-        self.start_state = start_state
-        self.current_state = start_state
+        self.start_node = start_node
+        self.current_node = start_node
         self.total_reward = 0
         self.remaining_moves = moves_number
         self.state = State.NOT_STARTED
@@ -30,9 +30,9 @@ class Trial(object):
             print ("the trial is finished")
             return
         self.state = State.IN_THE_MIDDLE
-        [reward, n_node] = self.current_state.get_reward( action)
+        reward, n_node = self.current_node.get_reward(action)
         self.total_reward += reward
-        self.current_state = n_node
+        self.current_node = n_node
         self.remaining_moves = self.remaining_moves - 1;
         if self.remaining_moves == 0:
             self.state = State.FINISHED
